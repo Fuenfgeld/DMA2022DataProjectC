@@ -6,14 +6,13 @@ import csv
 import os
 
 def connect_to_db(db_file):
-    if os.path.isfile("analysis.db"):
-        os.remove("analysis.db")
+    if os.path.isfile(db_file):
+        os.remove(db_file)
 
     sqlite3_conn = None
 
     try:
         sqlite3_conn = sqlite3.connect(db_file)
-        return sqlite3_conn
 
     except Error as err:
         print(err)
@@ -22,7 +21,7 @@ def connect_to_db(db_file):
             sqlite3_conn.close()
     
     cursor = sqlite3_conn.cursor()
-    cursor.execute('''
+    cursor.executescript('''
     CREATE TABLE IF NOT EXISTS disease (
         START DATE,
         STOP DATE,
@@ -205,6 +204,8 @@ def connect_to_db(db_file):
     ''')
     sqlite3_conn.commit()
 
+    return sqlite3_conn
+
 def insert_values_to_table(cursor, table_name, csv_file_path):
 
     """
@@ -213,6 +214,9 @@ def insert_values_to_table(cursor, table_name, csv_file_path):
     :param csv_file_path: path of the csv file to process
     :return: None
     """
+
+    print("Extracting data from " + csv_file_path)
+    cursor.execute("DELETE FROM " + table_name)
 
     # Read CSV file content
     values_to_insert = open_csv_file(csv_file_path)
@@ -224,12 +228,13 @@ def insert_values_to_table(cursor, table_name, csv_file_path):
         values_str = '?,' * column_numbers
         values_str = values_str[:-1]
 
-        sql_query = 'INSERT OR REPLACE INTO ' + table_name + '(' + column_names + ') VALUES (' + values_str + ')'
-
+        sql_query = 'INSERT OR REPLACE INTO {}({}) VALUES ({})'.format(
+            table_name,
+            column_names,
+            values_str
+        )
 
         cursor.executemany(sql_query, values_to_insert)
-
-        print('SQL insert process finished')
     else:
         print('Nothing to insert')
 
