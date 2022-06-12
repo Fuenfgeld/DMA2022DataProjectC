@@ -1,5 +1,3 @@
-import pandas as pd
-from functools import reduce
 import sqlite3
 from sqlite3 import Error
 import csv
