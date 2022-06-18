@@ -28,14 +28,18 @@ jobs:
         run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
       - name: Zip artefacts
         run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
+      - uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+        with:
+          length: 8
       - uses: rickstaa/action-create-tag@v1
         with:
-          tag: release-${GITHUB_SHA::8}
-          message: Release of ${GITHUB_SHA::8}
+          tag: release-${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
+          message: Release of ${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: release-${GITHUB_SHA::8}
+          tag_name: release-${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
           files: |
             pipeline.zip
             artefacts.zip
