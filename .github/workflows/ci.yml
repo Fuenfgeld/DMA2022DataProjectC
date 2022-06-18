@@ -25,9 +25,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Zip pipeline
-        run: zip -r pipeline.zip -x artefacts-for-release .
+        run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
       - name: Zip artefacts
-        run: zip -r artefacts.zip -x .gitkeep artefacts-for-release
+        run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
       - uses: actions/upload-artifact@v3
         with:
           name: pipeline-and-artefacts

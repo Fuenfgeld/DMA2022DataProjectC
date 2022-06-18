@@ -132,3 +132,5 @@ src/*sqlite
 
 artefacts-for-release/*
 !artefacts-for-release/.gitkeep
+artefacts.zip
+pipeline.zip
