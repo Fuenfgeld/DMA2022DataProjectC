@@ -34,12 +34,12 @@ jobs:
           length: 8
       - uses: rickstaa/action-create-tag@v1
         with:
-          tag: release-${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
-          message: Release of ${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
+          tag: release-${{ steps.short-sha.outputs.sha }}
+          message: Release of ${{ steps.short-sha.outputs.sha }}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: release-${{ github.head_ref }}-${{ steps.short-sha.outputs.sha }}
+          tag_name: release-${{ steps.short-sha.outputs.sha }}
           files: |
             pipeline.zip
             artefacts.zip
