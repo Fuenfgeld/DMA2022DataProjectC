@@ -30,12 +30,12 @@ jobs:
         run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
       - uses: rickstaa/action-create-tag@v1
         with:
-          tag: ${GITHUB_SHA::8}
+          tag: release-${GITHUB_SHA::8}
           message: Release of ${GITHUB_SHA::8}
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${GITHUB_SHA::8}
+          tag_name: release-${GITHUB_SHA::8}
           files: |
             pipeline.zip
             artefacts.zip
