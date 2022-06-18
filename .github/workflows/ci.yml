@@ -28,9 +28,9 @@ jobs:
         run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
       - name: Zip artefacts
         run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
-      - uses: actions/upload-artifact@v3
+      - name: Release
+        uses: softprops/action-gh-release@v1
         with:
-          name: pipeline-and-artefacts
-          path: |
+          files: |
             pipeline.zip
             artefacts.zip
