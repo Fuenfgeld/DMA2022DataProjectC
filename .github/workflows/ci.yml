@@ -25,7 +25,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Zip pipeline
-        run: zip -r pipeline.zip -x artefacts-for-release *
+        run: zip -r pipeline.zip -x artefacts-for-release .
       - name: Zip artefacts
         run: zip -r artefacts.zip -x .gitkeep artefacts-for-release
       - uses: actions/upload-artifact@v3
