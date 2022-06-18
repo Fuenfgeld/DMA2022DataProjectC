@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 
 src/*sqlite
+
+artefacts-for-release/*
+!artefacts-for-release/.gitkeep

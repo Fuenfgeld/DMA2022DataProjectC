@@ -18,3 +18,19 @@ jobs:
         run: pip install jupyter nbconvert
       - name: Run all notebooks
         run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
+  
+  build-release:
+    runs-on: ubuntu-latest
+    needs: [run-notebooks]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Zip pipeline
+        run: zip -r pipeline.zip -x artefacts-for-release *
+      - name: Zip artefacts
+        run: zip -r artefacts.zip -x .gitkeep artefacts-for-release
+      - uses: actions/upload-artifact@v3
+        with:
+          name: pipeline-and-artefacts
+          path: |
+            pipeline.zip
+            artefacts.zip
