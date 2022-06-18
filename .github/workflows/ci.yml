@@ -18,3 +18,28 @@ jobs:
         run: pip install jupyter nbconvert
       - name: Run all notebooks
         run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
+  
+  build-release:
+    runs-on: ubuntu-latest
+    needs: [run-notebooks]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Zip pipeline
+        run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
+      - name: Zip artefacts
+        run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
+      - uses: benjlevesque/short-sha@v1.2
+        id: short-sha
+        with:
+          length: 8
+      - uses: rickstaa/action-create-tag@v1
+        with:
+          tag: release-${{ steps.short-sha.outputs.sha }}
+          message: Release of ${{ steps.short-sha.outputs.sha }}
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: release-${{ steps.short-sha.outputs.sha }}
+          files: |
+            pipeline.zip
+            artefacts.zip
