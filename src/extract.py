@@ -3,7 +3,7 @@ from sqlite3 import Error
 import csv
 import os
 
-def connect_to_db(db_file):
+def connect_to_db(logger, db_file):
     if os.path.isfile(db_file):
         os.remove(db_file)
 
@@ -13,7 +13,7 @@ def connect_to_db(db_file):
         sqlite3_conn = sqlite3.connect(db_file)
 
     except Error as err:
-        print(err)
+        logger.logError("Could not open db", err)
 
         if sqlite3_conn is not None:
             sqlite3_conn.close()
@@ -204,7 +204,7 @@ def connect_to_db(db_file):
 
     return sqlite3_conn
 
-def insert_values_to_table(cursor, table_name, csv_file_path):
+def insert_values_to_table(logger, cursor, table_name, csv_file_path):
 
     """
     Open a csv file, store its content in a list excluding header and insert the data from the list to db table
@@ -213,7 +213,7 @@ def insert_values_to_table(cursor, table_name, csv_file_path):
     :return: None
     """
 
-    print("Extracting data from " + csv_file_path)
+    logger.log("🏗 Extracting data from " + csv_file_path)
     cursor.execute("DELETE FROM " + table_name)
 
     # Read CSV file content
@@ -234,7 +234,7 @@ def insert_values_to_table(cursor, table_name, csv_file_path):
 
         cursor.executemany(sql_query, values_to_insert)
     else:
-        print('Nothing to insert')
+        logger.log('Nothing to insert')
 
 
 def open_csv_file(csv_file_path):

@@ -26,6 +26,17 @@ jobs:
       - uses: actions/checkout@v2
       - name: Zip pipeline
         run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      - uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'adopt'
+      - name: Install Juypter Dependencies
+        run: pip install jupyter nbconvert
+      - name: Run all notebooks
+        run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
       - name: Zip artefacts
         run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
       - uses: benjlevesque/short-sha@v1.2
