@@ -24,6 +24,8 @@ jobs:
     needs: [run-notebooks]
     steps:
       - uses: actions/checkout@v2
+      - name: Run all notebooks
+        run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
       - name: Zip pipeline
         run: zip -r pipeline.zip . --exclude .git/\* artefacts-for-release/\* \*pycache\*
       - name: Zip artefacts
