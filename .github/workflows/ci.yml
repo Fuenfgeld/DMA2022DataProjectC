@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   run-notebooks:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v3
@@ -20,7 +20,7 @@ jobs:
         run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
   
   build-release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     needs: [run-notebooks]
     steps:
       - uses: actions/checkout@v2
