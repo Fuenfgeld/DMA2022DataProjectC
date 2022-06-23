@@ -14,24 +14,11 @@ def connect_to_db(logger, db_file):
 
     except Error as err:
         logger.logError("Could not open db", err)
-
         if sqlite3_conn is not None:
             sqlite3_conn.close()
     
     cursor = sqlite3_conn.cursor()
     cursor.executescript('''
-    CREATE TABLE IF NOT EXISTS disease (
-        START DATE,
-        STOP DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id)
-    );
     CREATE TABLE IF NOT EXISTS patients (
         Id STRING PRIMARY KEY,
         BIRTHDATE DATE,
@@ -107,79 +94,31 @@ def connect_to_db(logger, db_file):
             REFERENCES encounters (Id) 
 
     );
-    CREATE TABLE IF NOT EXISTS medications (
+    CREATE TABLE IF NOT EXISTS procedures (
         START DATE,
         STOP DATE,
         PATIENT STRING,
-        PAYER STRING,
         ENCOUNTER STRING,
         CODE STRING,
         DESCRIPTION STRING,
-        BASE_COST INTEGER,
-        PAYER_COVERAGE INTEGER,
-        DISPENSES INTEGER,
-        TOTALCOST INTEGER,
-        REASONCODE STRING,
-        REASONDESCRIPTION STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        
-    );
-    CREATE TABLE IF NOT EXISTS procedures (
-        DATE DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        BASE_COST INTEGER,
+        BASE_COST STRING,
         REASONCODE STRING,
         REASONDESCRIPTION STRING,
         FOREIGN KEY (PATIENT)
             REFERENCES patients (Id) 
         FOREIGN KEY (Encounter)
             REFERENCES encounters (Id) 
-
     );
     CREATE TABLE IF NOT EXISTS observations (
         DATE DATE,
         PATIENT STRING,
         ENCOUNTER STRING,
+        OBSERVATION_TYPE STRING,
         CODE STRING,
         DESCRIPTION STRING,
         VALUE STRING,
         UNITS STRING,
         TYPE STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id) 
-
-    );
-    CREATE TABLE IF NOT EXISTS devices (
-        START DATE,
-        STOP DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        UDI STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id)
-        
-    );
-    CREATE TABLE IF NOT EXISTS imaging_studies (
-        Id STRING PRIMARY KEY,
-        DATE DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        BODYSITE_CODE STRING,
-        BODYSITE_DESCRIPTION STRING,
-        MODALITY_CODE STRING,
-        MODALITY_DESCRIPTION STRING,
-        SOP_CODE STRING,
-        SOP_DESCRIPTION STRING,
         FOREIGN KEY (PATIENT)
             REFERENCES patients (Id) 
         FOREIGN KEY (Encounter)
@@ -192,7 +131,7 @@ def connect_to_db(logger, db_file):
         ENCOUNTER STRING,
         CODE STRING,
         DESCRIPTION STRING,
-        BASE_COST INTEGER,
+        COST INTEGER,
         FOREIGN KEY (PATIENT)
             REFERENCES patients (Id) 
         FOREIGN KEY (Encounter)
