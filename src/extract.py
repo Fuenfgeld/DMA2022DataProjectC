@@ -46,25 +46,6 @@ def connect_to_db(logger, db_file):
         HEALTHCARE_EXPENSES INTEGER,
         HEALTHCARE_COVERAGE INTEGER
     );
-    CREATE TABLE IF NOT EXISTS encounters (
-        Id STRING PRIMARY KEY,
-        START DATE,
-        STOP DATE,
-        PATIENT STRING,
-        ORGANIZATIONS STRING,
-        PROVIDER STRING,
-        PAYER STRING,
-        ENCOUNTERCLASS STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        BASE_ENCOUNTER_COST INTEGER,
-        TOTAL_CLAIM_COST INTEGER,
-        PAYER_COVERAGE INTEGER,
-        REASONCODE STRING,
-        REASONDESCRIPTION STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-    );
     CREATE TABLE IF NOT EXISTS careplans (
         Id STRING PRIMARY KEY,
         START DATE,
@@ -94,21 +75,6 @@ def connect_to_db(logger, db_file):
             REFERENCES encounters (Id) 
 
     );
-    CREATE TABLE IF NOT EXISTS procedures (
-        START DATE,
-        STOP DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        BASE_COST STRING,
-        REASONCODE STRING,
-        REASONDESCRIPTION STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id) 
-    );
     CREATE TABLE IF NOT EXISTS observations (
         DATE DATE,
         PATIENT STRING,
@@ -124,20 +90,7 @@ def connect_to_db(logger, db_file):
         FOREIGN KEY (Encounter)
             REFERENCES encounters (Id) 
 
-    );
-    CREATE TABLE IF NOT EXISTS immunizations(
-        DATE DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        COST INTEGER,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id) 
-
-    );
+    )
     ''')
     sqlite3_conn.commit()
 
@@ -153,7 +106,7 @@ def insert_values_to_table(logger, cursor, table_name, csv_file_path):
     """
 
     logger.log("🏗 Extracting data from " + csv_file_path)
-    cursor.execute("DELETE FROM " + table_name)
+    #cursor.execute("DELETE FROM " + table_name)
 
     # Read CSV file content
     values_to_insert = open_csv_file(csv_file_path)
@@ -165,7 +118,7 @@ def insert_values_to_table(logger, cursor, table_name, csv_file_path):
         values_str = '?,' * column_numbers
         values_str = values_str[:-1]
 
-        sql_query = 'INSERT OR REPLACE INTO {}({}) VALUES ({})'.format(
+        sql_query = 'INSERT INTO {}({}) VALUES ({})'.format(
             table_name,
             column_names,
             values_str
