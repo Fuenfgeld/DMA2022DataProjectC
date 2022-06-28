@@ -18,6 +18,10 @@ def connect_to_db(logger, db_file):
             sqlite3_conn.close()
     
     cursor = sqlite3_conn.cursor()
+    cursor.executescript('''DROP TABLE IF EXISTS patients;
+                            DROP TABLE IF EXISTS careplans;
+                            DROP TABLE IF EXISTS conditions;
+                            DROP TABLE IF EXISTS observations;''')
     cursor.executescript('''
     CREATE TABLE IF NOT EXISTS patients (
         Id STRING PRIMARY KEY,
