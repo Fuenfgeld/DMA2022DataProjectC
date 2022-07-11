@@ -10,6 +10,7 @@ class Logger:
     print = lambda _self, message: print(message)
 
     def startTimeMeasurement(self, identifier, description):
+        self.log("Started: " + description)
         self.timings.append({
             "identifier": identifier,
             "description": description,
