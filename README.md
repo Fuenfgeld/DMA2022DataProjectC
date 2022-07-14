@@ -8,7 +8,7 @@ Das Projekt ist in der Vorlesung Datenmanagement und Archivierung im Umfeld der 
 * synthetische [medizinische Daten aufzubereiten](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) und zu [analysieren](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse)
 * reproduzierbare [Auswertungen zu implementieren](./src)
 
-![Datenflussdiagramm](./images/Datenflussdiagramm.png)
+![Datenflussdiagramm](./images/Datenflussdiagramm.svg)
 
 
 ## Installation
