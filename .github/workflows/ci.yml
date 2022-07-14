@@ -16,8 +16,10 @@ jobs:
           distribution: 'adopt'
       - name: Install Juypter Dependencies
         run: pip install jupyter nbconvert pandas numpy matplotlib seaborn scikit-learn
-      - name: Run all notebooks
-        run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
+      - name: Run ETL notebook
+        run: jupyter nbconvert --to notebook --execute ./src/ETL.ipynb
+      - name: Run analyse notebook
+        run: jupyter nbconvert --to notebook --execute ./src/analysis.ipynb
   
   build-release:
     runs-on: ubuntu-22.04
@@ -35,8 +37,10 @@ jobs:
           distribution: 'adopt'
       - name: Install Juypter Dependencies
         run: pip install jupyter nbconvert pandas numpy matplotlib seaborn scikit-learn
-      - name: Run all notebooks
-        run: find . | grep ipynb | xargs -I "{}" jupyter nbconvert --to notebook --execute "{}"
+      - name: Run elt notebook
+        run: jupyter nbconvert --to notebook --execute ./src/ETL.ipynb
+      - name: Run analyse notebook
+        run: jupyter nbconvert --to notebook --execute ./src/analysis.ipynb
       - name: Zip artefacts
         run: zip -r artefacts.zip artefacts-for-release --exclude \*pycache\* \*.gitkeep
       - uses: benjlevesque/short-sha@v1.2

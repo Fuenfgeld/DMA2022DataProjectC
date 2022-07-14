@@ -31,7 +31,7 @@ jupyter notebook
 
 Nun sollten sich im Browser die Jupyter-Notebook als Dateipfad des Projektes öffnen. Bei Problemen schauen Sie [hier](https://jupyter-notebook-beginner-guide.readthedocs.io/en/latest/execute.html) nach.
 
-4. Anschließend können Sie das ETL-Notebook und Analyse-Notebook öffnen und die einzelnen Sektionen einzeln durchführen. Falls Sie noch nie mit Jupyter-Notebooks gearbeitet haben finden Sie [hier](https://www.dataquest.io/blog/jupyter-notebook-tutorial/) erste Schritte.
+4. Anschließend führen Sie zuerst das [ETL-Notebook](./src/ETL.ipynb) aus, welches die Rohdaten in ein passendes Datenschema für die Analyse verarbeiten. Danach können Sie das [Analyse-Notebook](./src/analysis.ipynb) öffnen und die einzelnen Sektionen einzeln durchführen. Falls Sie noch nie mit Jupyter-Notebooks gearbeitet haben finden Sie [hier](https://www.dataquest.io/blog/jupyter-notebook-tutorial/) erste Schritte.
 
 ## Video
 
