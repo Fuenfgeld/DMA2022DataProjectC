@@ -21,7 +21,9 @@ class Logger:
         for index in range(len(self.timings)):
             if self.timings[index]["identifier"] == identifier:
                 self.timings[index]["end"] = timestampInMilliseconds()
-                break
+                return
+
+        self.log(f"❌ Could not find a measurement for {identifier}")
 
     def log(self, message, params = None, type = "info"):
         jsonMessage = json.dumps(
@@ -36,9 +38,12 @@ class Logger:
 
     def logTimings(self):
         for timing in self.timings:
-            usedTime = timing['end'] - timing['start']
-            message = f"⏳ {timing['description']} in {usedTime}ms"
-            self.logWithTiming(message, usedTime)
+            if timing['end'] == None:
+                self.log(f"Time measurement for {timing['identifier']} not finished")
+            else:
+                usedTime = timing['end'] - timing['start']
+                message = f"⏳ {timing['description']} in {usedTime}ms"
+                self.logWithTiming(message, usedTime)
 
     def logWithTiming(self, message, timingInMilliseconds):
         self.log(message, {"timingInMilliseconds": timingInMilliseconds})
