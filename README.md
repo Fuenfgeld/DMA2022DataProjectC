@@ -16,7 +16,7 @@ In Deutschland sind etwa zwei Drittel aller Männer und rund die Hälfte aller F
 Hierzu haben wir aus verschiedene Patientendaten aus den elektronische Patientenakte[(ePa)](https://www.bundesgesundheitsministerium.de/elektronische-patientenakte.html) als CSV-Datein expotiert. Diese wurden anschließend in einem [ETL-Process](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) in einen [Sternschema tranfomiert](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Mappingtabellen), um effizenter Abfrage auf den Daten auführen zu könne. Dabei wurden unterschiedliche kritierien der [Datenqualität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenqualit%C3%A4t) und der darauf folgenden [Datenintegrität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenintegrit%C3%A4t) überprüft.
 Zur Nachvollziehbarkeit und Sicherheit der Pipeline wurde verschiedene Risiken und Gegenmaßnahmen in der [Datenschutzfolgeabschätzung](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenschutzfolgeabsch%C3%A4tzung), wie eindeutige Checksummen für der Rohdaten, vorgestellt.
 
-Eine Übersicht über die Projektplanung und ihreren Verlauf finden Sie im [Datenmanagementplan](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenmanagementplan)
+Eine Übersicht über die Projektplanung und ihren Verlauf finden Sie im [Datenmanagementplan](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenmanagementplan)
 
 ![Datenflussdiagramm](https://raw.githubusercontent.com/Fuenfgeld/DMA2022DataProjectC/main/images/Datenflussdiagramm.svg)
 
