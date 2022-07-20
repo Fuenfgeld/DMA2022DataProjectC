@@ -19,7 +19,6 @@ def connect_to_db(logger, db_file):
     
     cursor = sqlite3_conn.cursor()
     cursor.executescript('''DROP TABLE IF EXISTS patients;
-                            DROP TABLE IF EXISTS careplans;
                             DROP TABLE IF EXISTS conditions;
                             DROP TABLE IF EXISTS observations;''')
     cursor.executescript('''
@@ -49,22 +48,6 @@ def connect_to_db(logger, db_file):
         LON INTEGER,
         HEALTHCARE_EXPENSES INTEGER,
         HEALTHCARE_COVERAGE INTEGER
-    );
-    CREATE TABLE IF NOT EXISTS careplans (
-        Id STRING PRIMARY KEY,
-        START DATE,
-        STOP DATE,
-        PATIENT STRING,
-        ENCOUNTER STRING,
-        CODE STRING,
-        DESCRIPTION STRING,
-        REASONCODE STRING,
-        REASONDESCRIPTION STRING,
-        FOREIGN KEY (PATIENT)
-            REFERENCES patients (Id) 
-        FOREIGN KEY (Encounter)
-            REFERENCES encounters (Id) 
-
     );
     CREATE TABLE IF NOT EXISTS conditions (
         START DATE,
