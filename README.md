@@ -31,7 +31,7 @@ Für die Ausführung des Projekt in einem Colab-Book ist ein [Google-Account](ht
 * [ETL-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/ETL.ipynb)
 * [Analyse-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/analysis.ipynb)
 
-<font size="8">**⚠**</font> Um das Notebook in Goole-Colab ausführen zu können, muss zuvor folgender Zeilen zu beginn des Notebooks auskommentiert werden.
+<font size="8">**⚠**</font> Um das Notebook in Goole-Colab ausführen zu können, müssen zuvor folgende Zeilen zu beginn des Notebooks auskommentiert werden.
 
 ```
 !git clone https://github.com/Fuenfgeld/DMA2022DataProjectC.git
