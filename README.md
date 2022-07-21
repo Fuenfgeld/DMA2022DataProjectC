@@ -40,13 +40,6 @@ Für die Ausführung des Projekt in einem Colab-Book ist ein [Google-Account](ht
 * [ETL-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/ETL.ipynb)
 * [Analyse-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/analysis.ipynb)
 
-<font size="8">**⚠**</font> Um das Notebook in Goole-Colab ausführen zu können, müssen folgende Zeilen am Anfang des Notebooks auskommentiert werden:
-
-```
-!git clone https://github.com/Fuenfgeld/DMA2022DataProjectC.git
-%cd DMA2022DataProjectC/src
-```
-
 ### Manuelle Installation
 
 Zur Ausführung des Projektes wird eine [Python 3.x Version](https://www.python.org/downloads/) benötigt. Anschließend führen Sie folgende Schritte durch:
