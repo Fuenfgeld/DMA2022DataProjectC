@@ -2,7 +2,7 @@
 
 ## Einleitung
 
-Dieses Projekt ist im Rahmen der Vorlesung "Datenmanagement und Archivierung im Umfeld der Forschung (DAF)" an der [Hochschule Mannheim](https://www.hs-mannheim.de/) mit Unterstützung von [Dr. Maximilian Fünfgeld](https://lu.linkedin.com/in/fuenfgeld?original_referer=https%3A%2F%2Fwww.google.com%2F) entstanden und hat als Ziel eine retrospektiven klinischen Studie durchzuführen. Dabei sind folgende Punkte besonders zu beachten:
+Dieses Projekt ist im Rahmen der Vorlesung "Datenmanagement und Archivierung im Umfeld der Forschung (DAF)" an der [Hochschule Mannheim](https://www.hs-mannheim.de/) mit Unterstützung von [Dr. Maximilian Fünfgeld](https://lu.linkedin.com/in/fuenfgeld?original_referer=https%3A%2F%2Fwww.google.com%2F) entstanden und hat das Ziel eine retrospektive klinische Studie durchzuführen. Dabei sind folgende Punkte besonders zu beachten:
 
 * Erstellen eines [Datenmanagementplans](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenmanagementplan)
 * [Richtige Aufbereitung der medizinischen Daten](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) und deren [Analyse](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse)
@@ -13,20 +13,20 @@ Dieses Projekt ist im Rahmen der Vorlesung "Datenmanagement und Archivierung im 
 In Deutschland sind etwa zwei Drittel aller Männer und rund die Hälfte aller Frauen übergewichtig. Davon weist ungefähr ein Viertel sogar starkes Übergewicht (Adipositas) auf. Auch die Zahl an übergewichtigen Kindern ist in den vergangenen Jahren gestiegen. Um eine bessere Vorsorge für unsere Kunden leisten zu können, wollen wir als Krankenkasse [folgendes](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki) untersuchen: 
 > _Inwiefern Übergewicht mit unterschiedlichen Erkrankungen korreliert, also, ob nachweislich festzustellen ist, dass Menschen mit Übergewicht häufiger an     bestimmten Krankheiten erkranken._
 
-Hierfür wurden Patientendaten aus der elektronischen Patientenakte [(ePa)](https://www.bundesgesundheitsministerium.de/elektronische-patientenakte.html) als _csv_-Dateien expotiert. Die Daten wurden in einem [ETL-Prozess](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) in ein [Sternschema transformiert](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Mappingtabellen) um effizentere Abfragen auf den Daten ausführen zu können. Dabei wurden unterschiedliche Kritierien der [Datenqualität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenqualit%C3%A4t) und der [Datenintegrität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenintegrit%C3%A4t) überprüft.
+Hierfür wurden Patientendaten aus der elektronischen Patientenakte [(ePa)](https://www.bundesgesundheitsministerium.de/elektronische-patientenakte.html) als _csv_-Dateien exportiert. Die Daten wurden in einem [ETL-Prozess](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) in ein [Sternschema transformiert](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Mappingtabellen), um effizentere Abfragen mit den Daten durchführen zu können. Dabei wurden unterschiedliche Kritierien der [Datenqualität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenqualit%C3%A4t) und der [Datenintegrität](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenintegrit%C3%A4t) überprüft.
 Zur besseren Nachvollziehbarkeit und Risikominimierung wurden verschiedene Risiken und ihre Gegenmaßnahmen in der [Datenschutzfolgeabschätzung](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenschutzfolgeabsch%C3%A4tzung) vorgestellt.
 
 Eine Übersicht über die gesamte Projektplanung und ihren Verlauf finden Sie im [Datenmanagementplan](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenmanagementplan)
 
 ![Datenflussdiagramm](https://raw.githubusercontent.com/Fuenfgeld/DMA2022DataProjectC/main/images/Datenflussdiagramm.svg)
 
-_Abbildung 1: Datenflussdiagramm des gesamten Projektes mit Verweise auf den einzel Schritte._
+_Abbildung 1: Datenflussdiagramm des gesamten Projekts mit Verweise auf die einzelnen Schritte._
 
-Anschließend kann die [Analyse](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse) zur Beantwortung der Forschungsfrage durchgeführt werden. Hierzu haben wir uns die Verteilgung der BMI-Werte für die 10 häufigst vorkommenden Krankheiten angeschaut (Abb. 2). Dabei ist gut zu erkennen, dass die Häufigkeit vieler Krankeiten(Hyptertension,Prediabetes...) bei einem BMI-Wert von ~28 rapide steigt. 
+Anschließend kann die [Analyse](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse) zur Beantwortung der Forschungsfrage durchgeführt werden. Hierzu haben wir die Verteilung der BMI-Werte für die 10 am häufigsten vorkommenden Krankheiten betrachtet (Abb. 2). Dabei ist gut zu erkennen, dass die Anzahl vieler Krankeiten (Hyptertension,Prediabetes,...) bei einem BMI-Wert von ~28 rapide ansteigt. 
 
 ![AnalyseDiagramm](https://raw.githubusercontent.com/Fuenfgeld/DMA2022DataProjectC/main/images/distribution.svg)
 
-_Abbildung 2: Verteilung der BMI Werte zu den einzelnen Erkrankungsdiagnosen. Links als Boxplots und recht als Verteilungsfunktion dargestellt._
+_Abbildung 2: Verteilung der BMI-Werte pro Erkrankungsdiagnosen: Links als Boxplots und rechts als Verteilungsfunktionen dargestellt._
 
 
 ## Projekt Ausführung
@@ -35,12 +35,12 @@ Das Projekt kann entweder lokal oder online mit einem Google-Colab ausgeführt w
 
 ### Google Colab
 
-Für die Ausführung des Projekt in einem Colab-Book ist ein [Google-Account](https://support.google.com/accounts/answer/27441?hl=de) notwending, falls dieser nicht vorhanden sein sollte folgen Sie der manuelle Installationsanleitung. 
+Für die Ausführung des Projekt in einem Colab-Book ist ein [Google-Account](https://support.google.com/accounts/answer/27441?hl=de) notwendig. Falls dieser nicht vorhanden sein sollte folgen Sie der manuellen Installationsanleitung. 
 
 * [ETL-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/ETL.ipynb)
 * [Analyse-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/analysis.ipynb)
 
-<font size="8">**⚠**</font> Um das Notebook in Goole-Colab ausführen zu können, müssen zuvor folgende Zeilen zu beginn des Notebooks auskommentiert werden.
+<font size="8">**⚠**</font> Um das Notebook in Goole-Colab ausführen zu können, müssen folgende Zeilen am Anfang des Notebooks auskommentiert werden:
 
 ```
 !git clone https://github.com/Fuenfgeld/DMA2022DataProjectC.git
