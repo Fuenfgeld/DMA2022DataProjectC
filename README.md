@@ -20,6 +20,15 @@ Eine Übersicht über die gesamte Projektplanung und ihren Verlauf finden Sie im
 
 ![Datenflussdiagramm](https://raw.githubusercontent.com/Fuenfgeld/DMA2022DataProjectC/main/images/Datenflussdiagramm.svg)
 
+_Abbildung 1: Datenflussdiagramm des gesamten Projektes mit Verweise auf den einzel Schritte._
+
+Anschließend kann die [Analyse](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse) zur Beantwortung der Forschungsfrage durchgeführt werden. Hierzu haben wir uns die Verteilgung der BMI-Werte für die 10 häufigst vorkommenden Krankheiten angeschaut (Abb. 2). Dabei ist gut zu erkennen, dass die Häufigkeit vieler Krankeiten(Hyptertension,Prediabetes...) bei einem BMI-Wert von ~28 rapide steigt. 
+
+![AnalyseDiagramm](https://raw.githubusercontent.com/Fuenfgeld/DMA2022DataProjectC/main/images/distribution.svg)
+
+_Abbildung 2: Verteilung der BMI Werte zu den einzelnen Erkrankungsdiagnosen. Links als Boxplots und recht als Verteilungsfunktion dargestellt._
+
+
 ## Projekt Ausführung
 
 Das Projekt kann entweder lokal oder online mit einem Google-Colab ausgeführt werden. 
