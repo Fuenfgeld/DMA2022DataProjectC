@@ -38,7 +38,7 @@ Das Projekt kann entweder lokal oder online mit einem Google-Colab ausgeführt w
 Für die Ausführung des Projekt in einem Colab-Book ist ein [Google-Account](https://support.google.com/accounts/answer/27441?hl=de) notwendig. Falls dieser nicht vorhanden sein sollte folgen Sie der manuellen Installationsanleitung. 
 
 * [ETL-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/ETL.ipynb)
-* [Analyse-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/analysis.ipynb)
+* [Analyse-Colab-Book](https://colab.research.google.com/github/Fuenfgeld/DMA2022DataProjectC/blob/main/src/analysis.ipynb) (⚠ Bitte führen Sie die Codeblöcke mit dem "Run all" Befehl aus, um eine korrekte Funktion zu gewährleisten.)
 
 ### Manuelle Installation
 
@@ -64,7 +64,7 @@ Nun sollte sich im Browser das Jupyter-Notebook als Dateipfad des Projektes öff
 
 ## Video
 
-TBD
+[https://drive.google.com/file/d/1Q1wn_I_Z_I0G6pcFTpyk6Pz8wL6TTOs4/view?usp=sharing](https://drive.google.com/file/d/1Q1wn_I_Z_I0G6pcFTpyk6Pz8wL6TTOs4/view?usp=sharing)
 
 ## Literatur & Kurse
 
