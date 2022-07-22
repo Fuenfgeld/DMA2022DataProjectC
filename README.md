@@ -74,3 +74,6 @@ Im Rahmen des Kurses wurden folgende Themen im Vorfeld ausgearbeitet, die eine g
 * [Einführung in SQL & Data Engineering und Datenmodellierung](https://github.com/Fuenfgeld/2022TeamBDataEngineeringBC)
 * [ETL-Process](https://github.com/Fuenfgeld/2022TeamADataEngineeringBC)
 * [Medizinische Daten (Datentypen, Metadaten und biomedizinische Standards) & Archivierung nach FAIR](https://github.com/Fuenfgeld/2022TeamADataManagementBC)
+
+## Disclaimer: In dem Projekt wurden synthetische Daten verwendet. Keine echten Patienten Data (siehe https://github.com/synthetichealth/synthea)
+
