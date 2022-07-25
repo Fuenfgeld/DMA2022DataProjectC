@@ -8,6 +8,10 @@ Dieses Projekt ist im Rahmen der Vorlesung "Datenmanagement und Archivierung im 
 * [Richtige Aufbereitung der medizinischen Daten](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Datenvorverarbeitung) und deren [Analyse](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki/Analyse)
 * Reproduzierbarkeit der [Auswertungen](./src)
 
+### Projekt Video
+[![Watch the video](https://img.youtube.com/vi/I8vSpyIj3Cs/maxresdefault.jpg)](https://youtu.be/NBAYEIra41Q)
+https://youtu.be/NBAYEIra41Q
+
 ## Thema des Forschungsprojekts
 
 In Deutschland sind etwa zwei Drittel aller Männer und rund die Hälfte aller Frauen übergewichtig. Davon weist ungefähr ein Viertel sogar starkes Übergewicht (Adipositas) auf. Auch die Zahl an übergewichtigen Kindern ist in den vergangenen Jahren gestiegen. Um eine bessere Vorsorge für unsere Kunden leisten zu können, wollen wir als Krankenkasse [folgendes](https://github.com/Fuenfgeld/DMA2022DataProjectC/wiki) untersuchen: 
