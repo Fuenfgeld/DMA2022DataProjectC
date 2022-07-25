@@ -9,7 +9,7 @@ Dieses Projekt ist im Rahmen der Vorlesung "Datenmanagement und Archivierung im 
 * Reproduzierbarkeit der [Auswertungen](./src)
 
 ### Projekt Video
-[![Watch the video](https://img.youtube.com/vi/I8vSpyIj3Cs/maxresdefault.jpg)](https://youtu.be/NBAYEIra41Q)
+[![Watch the video](https://img.youtube.com/vi/NBAYEIra41Q/maxresdefault.jpg)](https://youtu.be/NBAYEIra41Q)
 https://youtu.be/NBAYEIra41Q
 
 ## Thema des Forschungsprojekts
